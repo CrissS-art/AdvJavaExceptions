@@ -4,6 +4,7 @@ public class TestCity {
 
 	public static void main(String[] args) {
 
+//		faire une methode avec objet City et try catch generique
 		@SuppressWarnings("unused")
 		City toulouse;
 		try {
