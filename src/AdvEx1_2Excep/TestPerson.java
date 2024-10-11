@@ -22,7 +22,6 @@ public class TestPerson {
 			e.printStackTrace();
 		}
 		
-		
 		for (Person person : people) {
 
             boolean bornInFrance = person.getBirthCity() != null && person.getBirthCity().getCountry().equalsIgnoreCase(searchCountryName);

@@ -4,36 +4,16 @@ public class TestCity {
 
 	public static void main(String[] args) {
 
-//		faire une methode avec objet City et try catch generique
-		@SuppressWarnings("unused")
-		City toulouse;
-		try {
-			toulouse = new City("Toulouse","France",450000);
-		} catch (InhabitantsException e) {
-			e.printStackTrace();
-		}
-		@SuppressWarnings("unused")
-		City chalon;
-		try {
-			chalon = new City("Chalon","France",61000);
-		} catch (InhabitantsException e) {
-			e.printStackTrace();
-		}
-		@SuppressWarnings("unused")
-		City tarbes;
-		try {
-			tarbes = new City("Tarbes","France",45000);
-		} catch (InhabitantsException e) {
-			e.printStackTrace();
-		}
-		@SuppressWarnings("unused")
-		City montréal;
-		try {
-			montréal = new City("Montréal","Québec",3500000);
-		} catch (InhabitantsException e) {
-			e.printStackTrace();
-		}
-		
-	}
-
+        City toulouse = new City("Toulouse", "France");
+        toulouse.trySetInhabitants(-120);
+        
+        City chalon = new City("Chalon", "France");
+        chalon.trySetInhabitants(61000);
+        
+        City tarbes = new City("Tarbes", "France");
+        tarbes.trySetInhabitants(45000);
+        
+        City montréal = new City("Montréal", "Québec");
+        montréal.trySetInhabitants(3500000);
+    }
 }
