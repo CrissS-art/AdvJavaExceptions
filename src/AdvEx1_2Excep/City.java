@@ -19,7 +19,6 @@ public class City {
 			setCountry(country);
 		}
 		
-		
 	// Accesseurs
 		public String getCityName() {
 			return cityName;
