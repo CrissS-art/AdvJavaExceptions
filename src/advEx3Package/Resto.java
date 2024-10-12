@@ -1,6 +1,12 @@
 package advEx3Package;
 
 import java.util.Scanner;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Resto {
@@ -14,6 +20,7 @@ public class Resto {
     };
 
     public static int getChoice(String[] table, Scanner scan) {
+    	
         System.out.println("Que souhaitez-vous comme " + table[0]);
         for (int i = 1; i < table.length; i++) {
             System.out.print("[" + i + "-" + table[i] + "] ");
@@ -25,12 +32,16 @@ public class Resto {
             return getChoice(table, scan); 
         }
         return choice;
-    } // Fixed closing brace added here
+    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        ArrayList<String> recaps = new ArrayList<>();
-
+        FileWriter myWriter = null;
+        ObjectOutputStream oos = null;
+        
+        try {
+        	myWriter = new FileWriter("order.txt");
+    	
         System.out.println("Bonjour, combien de menus souhaitez-vous ?");
         int orderNumber = scan.nextInt();
 
@@ -48,16 +59,24 @@ public class Resto {
                     }
                 }
             }
-
+            myWriter = new FileWriter("order.txt");
             String recap = "\n************ Résumé de la commande N°" + i + " ************\n" +
                            String.join("\n", yourOrders) + "\n"; 
-            recaps.add(recap);
+            myWriter.write(recap);
         }
-
-        for (String recap : recaps) {
-            System.out.println(recap);
-        }
+        } catch (IOException e) {
+        System.out.println("Problem !");
+        e.printStackTrace();
+        } finally {
+            try {
+                if (myWriter != null) {
+                    myWriter.close(); 
+                }
         scan.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
 
