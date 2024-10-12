@@ -25,19 +25,17 @@ public class Resto {
             return getChoice(table, scan); 
         }
         return choice;
-    }
+    } // Fixed closing brace added here
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         ArrayList<String> recaps = new ArrayList<>();
 
-
         System.out.println("Bonjour, combien de menus souhaitez-vous ?");
         int orderNumber = scan.nextInt();
 
-       
         for (int i = 1; i <= orderNumber; i++) {
-            ArrayList<String> yourOrders = new ArrayList<>(); 
+            ArrayList<String> yourOrders = new ArrayList<>();
             System.out.println("\nCommande numéro : " + i);
 
             // Itérer à travers chaque sous-menu
@@ -51,16 +49,20 @@ public class Resto {
                 }
             }
 
-            String recap = "Commande " + i + ": " + yourOrders.toString();
+            String recap = "\n************ Résumé de la commande N°" + i + " ************\n" +
+                           String.join("\n", yourOrders) + "\n"; 
             recaps.add(recap);
         }
 
-        System.out.println("\nRécapitulatif des commandes :");
         for (String recap : recaps) {
             System.out.println(recap);
         }
-
         scan.close();
-        System.out.println("Merci pour vos commandes, et à bientôt !");
     }
 }
+
+/* fixer l'apparence du recap:
+ * 	titre résumé cde n°i avec iteration
+ * faire que chaque élément de l'itération aille  à la ligne
+ * sauté 2 lignes avant la prochaine cde
+ */
