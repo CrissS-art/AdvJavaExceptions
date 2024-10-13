@@ -1,12 +1,8 @@
 package advEx3Package;
 
 import java.util.Scanner;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Resto {
@@ -37,10 +33,9 @@ public class Resto {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         FileWriter myWriter = null;
-        ObjectOutputStream oos = null;
         
         try {
-        	myWriter = new FileWriter("order.txt");
+            myWriter = new FileWriter("order.txt"); 
     	
         System.out.println("Bonjour, combien de menus souhaitez-vous ?");
         int orderNumber = scan.nextInt();
@@ -59,10 +54,9 @@ public class Resto {
                     }
                 }
             }
-            myWriter = new FileWriter("order.txt");
-            String recap = "\n************ Résumé de la commande N°" + i + " ************\n" +
-                           String.join("\n", yourOrders) + "\n"; 
-            myWriter.write(recap);
+            myWriter.write("\n************ Résumé de la commande N°" + i + " ************\n" +
+                           String.join("\n", yourOrders) + "\n"); 
+            
         }
         } catch (IOException e) {
         System.out.println("Problem !");
@@ -70,7 +64,8 @@ public class Resto {
         } finally {
             try {
                 if (myWriter != null) {
-                    myWriter.close(); 
+                	myWriter.flush();
+                	myWriter.close();
                 }
         scan.close();
             } catch (IOException e) {
@@ -79,9 +74,3 @@ public class Resto {
         }
     }
 }
-
-/* fixer l'apparence du recap:
- * 	titre résumé cde n°i avec iteration
- * faire que chaque élément de l'itération aille  à la ligne
- * sauté 2 lignes avant la prochaine cde
- */

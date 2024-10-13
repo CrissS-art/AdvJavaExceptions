@@ -1,5 +1,21 @@
 
+************ Résumé de la commande N°1 ************
+Quiche
+Poisson
+Frites
+Soda
+Tiramisu
+
 ************ Résumé de la commande N°2 ************
 Soupe
+Boeuf
+Pâtes
+Eau gazeuse
+Mousse au chocolat
+
+************ Résumé de la commande N°3 ************
+Salade
+Poulet
+Riz
 Eau plate
 Tarte maison
