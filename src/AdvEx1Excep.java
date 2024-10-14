@@ -2,9 +2,6 @@ import java.util.Date;
 
 public class AdvEx1Excep {
 
-	Date date = null;
-	Date today = new Date();
-	
 	public Date getDate() {
 		return date;
 	}
